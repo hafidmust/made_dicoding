@@ -1,0 +1,8 @@
+dependencies {
+    implementation "de.hdodenhof:circleimageview:$circleimage_version"
+    implementation "com.github.bumptech.glide:glide:$glide_version"
+    implementation "com.google.dagger:hilt-android:$hilt_version"
+    kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
+    implementation "androidx.activity:activity-ktx:$activity_ktx_version"
+    implementation "androidx.fragment:fragment-ktx:$fragment_ktx_version"
+}
