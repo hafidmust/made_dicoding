@@ -23,13 +23,6 @@
                 android:value="" />
         </activity>
         <activity
-            android:name="com.hafidmust.favorite.FavoriteActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
             android:name=".home.HomeActivity"
             android:exported="true">
             <meta-data
