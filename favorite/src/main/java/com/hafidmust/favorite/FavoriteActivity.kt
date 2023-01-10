@@ -5,7 +5,8 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.hafidmust.core.ui.StoriesAdapter
+import com.hafidmust.core.domain.model.Stories
+import com.hafidmust.core.ui.MadeStoriesAdapter
 import com.hafidmust.favorite.databinding.ActivityFavoriteBinding
 import com.hafidmust.favorite.di.DaggerFavoriteComponent
 import com.hafidmust.madestories.detail.DetailActivity
@@ -38,15 +39,17 @@ class FavoriteActivity : AppCompatActivity() {
         setContentView(binding.root)
         supportActionBar?.title = "Favorite Stories"
 
-        val storiesAdapter = StoriesAdapter()
-        storiesAdapter.onItemClick = {
-            val intent = Intent(this, DetailActivity::class.java)
-            intent.putExtra(DetailActivity.EXTRA_DATA, it)
-            startActivity(intent)
-        }
+        val storiesAdapter = MadeStoriesAdapter(object : MadeStoriesAdapter.IClickListener{
+            override fun onClick(stories: Stories) {
+                val intent = Intent(applicationContext, DetailActivity::class.java)
+                intent.putExtra(DetailActivity.EXTRA_DATA, stories)
+                startActivity(intent)
+            }
+        })
+
 
         viewmodel.favoriteStories.observe(this) { stories ->
-            storiesAdapter.setData(stories)
+            storiesAdapter.submitList(stories)
         }
 
         with(binding.rvStories) {

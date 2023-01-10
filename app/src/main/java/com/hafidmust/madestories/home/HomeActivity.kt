@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.hafidmust.core.domain.model.Stories
 import com.hafidmust.core.ui.MadeStoriesAdapter
 import com.hafidmust.madestories.R
-import com.hafidmust.core.ui.StoriesAdapter
 import com.hafidmust.madestories.databinding.ActivityHomeBinding
 import com.hafidmust.madestories.detail.DetailActivity
 
