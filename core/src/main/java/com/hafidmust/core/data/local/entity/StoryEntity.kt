@@ -1,6 +1,5 @@
 package com.hafidmust.core.data.local.entity
 
-import androidx.annotation.NonNull
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -23,7 +22,6 @@ data class StoryEntity(
     val lon: Float,
 
     @PrimaryKey
-    @NonNull
     @ColumnInfo(name = "id")
     val id: String,
 

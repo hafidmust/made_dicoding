@@ -10,6 +10,9 @@ buildscript {
     ext.hilt_version = "2.44"
     ext.activity_ktx_version = '1.1.0'
     ext.fragment_ktx_version = '1.2.5'
+    ext.leakcanary_version = '2.10'
+    ext.sqlcipher_version = '4.4.0'
+    ext.sqlitektx_version = '2.1.0'
 
 }
 plugins {

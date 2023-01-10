@@ -9,7 +9,7 @@ import javax.inject.Inject
 class StoriesInteractor @Inject constructor(private val storiesRepository: IStoriesRepository) :
     StoriesUseCase {
 
-    override fun getAllStories(token: String): Flow<com.hafidmust.core.data.Resource<List<Stories>>> {
+    override fun getAllStories(token: String): Flow<Resource<List<Stories>>> {
         return storiesRepository.getAllStories(token)
     }
 

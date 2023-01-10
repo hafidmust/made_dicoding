@@ -13,13 +13,21 @@ android {
         minSdk 21
         targetSdk 32
 
+        buildConfigField "String", "HASH_PIN", "\"sha256/7Coq67wu+UKhLuqpfjezOTCK/xSH3Gmd69K9O5anOA4=\""
+        buildConfigField "String", "HOST_NAME", "\"story-api.dicoding.dev\""
+        buildConfigField "String", "BASE_URL", "\"https://story-api.dicoding.dev/v1/\""
+
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
     }
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -33,6 +41,10 @@ android {
     buildFeatures {
         viewBinding = true
     }
+}
+
+kapt {
+    correctErrorTypes true
 }
 
 dependencies {

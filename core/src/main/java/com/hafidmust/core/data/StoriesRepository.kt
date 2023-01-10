@@ -20,8 +20,8 @@ class StoriesRepository @Inject constructor(
     private val localDataSource: LocalDataSource,
     private val appExecutors: AppExecutors
 ) : IStoriesRepository {
-    override fun getAllStories(token: String): Flow<com.hafidmust.core.data.Resource<List<Stories>>> =
-        object : com.hafidmust.core.data.NetworkBoundResource<List<Stories>, List<ListStoryItem>>() {
+    override fun getAllStories(token: String): Flow<Resource<List<Stories>>> =
+        object : NetworkBoundResource<List<Stories>, List<ListStoryItem>>() {
             override fun loadFromDB(): Flow<List<Stories>> {
                 return localDataSource.getAllStories().map {
                     DataMapper.mapEntitiesToDomain(it)
@@ -29,7 +29,8 @@ class StoriesRepository @Inject constructor(
             }
 
             override fun shouldFetch(data: List<Stories>?): Boolean {
-                return data == null || data.isEmpty()
+//                return data == null || data.isEmpty()
+                return true
             }
 
             override suspend fun createCall(): Flow<ApiResponse<List<ListStoryItem>>> {

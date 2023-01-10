@@ -1,10 +1,12 @@
 package com.hafidmust.core.di
 
+import com.hafidmust.core.BuildConfig
 import com.hafidmust.core.data.remote.network.ApiService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import okhttp3.CertificatePinner
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -17,7 +19,14 @@ class NetworkModule {
 
     @Provides
     fun provideOkHttpClient() : OkHttpClient {
+
+        val secretKey = BuildConfig.HASH_PIN
+        val certificatePinner = CertificatePinner.Builder()
+            .add(BuildConfig.HOST_NAME, secretKey)
+            .build()
+
         return OkHttpClient.Builder()
+            .certificatePinner(certificatePinner)
             .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
             .connectTimeout(120,TimeUnit.SECONDS)
             .readTimeout(120, TimeUnit.SECONDS)

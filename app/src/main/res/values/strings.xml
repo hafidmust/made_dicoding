@@ -2,4 +2,6 @@
     <string name="app_name">MADE Stories</string>
     <string name="favorite_menu">Favorite Menu</string>
     <string name="title_favorite">Favorite</string>
+    <string name="image_stories">Image Stories</string>
+    <string name="fab_favorite">Fab Favorite</string>
 </resources>
