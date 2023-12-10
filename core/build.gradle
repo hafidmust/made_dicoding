@@ -13,7 +13,7 @@ android {
         minSdk 21
         targetSdk 32
 
-        buildConfigField "String", "HASH_PIN", "\"sha256/7Coq67wu+UKhLuqpfjezOTCK/xSH3Gmd69K9O5anOA4=\""
+        buildConfigField "String", "HASH_PIN", "\"sha256/dtGxZMaUyjyBkkSF3EkYxBYCJndC7uUiwNCePNM8a8Y=\""
         buildConfigField "String", "HOST_NAME", "\"story-api.dicoding.dev\""
         buildConfigField "String", "BASE_URL", "\"https://story-api.dicoding.dev/v1/\""
 

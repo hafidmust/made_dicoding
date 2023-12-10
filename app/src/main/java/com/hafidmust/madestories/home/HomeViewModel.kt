@@ -9,6 +9,6 @@ import javax.inject.Inject
 @HiltViewModel
 class HomeViewModel @Inject constructor(storiesUseCase: StoriesUseCase) : ViewModel() {
     private var token =
-        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ1c2VyLTFJX0tKNkVZaDBZWkFPcDciLCJpYXQiOjE2NzI5MzI0MzR9.bkoTIt196yyiNplk_beqPBoivgceQ4emwbjCOmP_Kps"
+        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ1c2VyLTZVdGZFZGUzb3lHV1NsQVUiLCJpYXQiOjE3MDIyMzkyMjR9.be5Y5ed3guQ5WktkRcdWrk-QC4axBcuHxA0g6ca0KC0"
     val stories = storiesUseCase.getAllStories(token).asLiveData()
 }
